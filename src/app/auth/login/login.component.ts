@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  // private form = viewChild.required<NgForm>('form')
+
   onSubmit(formData: NgForm) {
     if (formData.form.invalid) {
       return;
@@ -19,5 +21,7 @@ export class LoginComponent {
 
     console.log(formData.form);
     console.log(email, password);
+
+    formData.form.reset();
   }
 }
